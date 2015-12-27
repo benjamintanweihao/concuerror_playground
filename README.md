@@ -6,6 +6,7 @@
 
 ```
 concuerror --pa /usr/local/Cellar/elixir/HEAD/lib/elixir/ebin/ \
+           --pa /usr/local/Cellar/elixir/HEAD/lib/ex_unit/ebin \
            --pa _build/test/lib/concuerror_playground/ebin     \
            -m Elixir.RegServer.ConcurrencyTest \
            --graph concuerror.dot \
