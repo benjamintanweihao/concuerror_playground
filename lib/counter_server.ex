@@ -37,4 +37,5 @@ defmodule CounterServer do
     :ets.insert(@table, {:counter, n})
     {:noreply, state}
   end
+
 end
