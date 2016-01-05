@@ -1,11 +1,10 @@
 Code.require_file "../test_helper.exs", __DIR__
 
 defmodule SpawnReg.ConcurrencyTest do
-  import SpawnReg
-  
+
   def test do
     me = self
-    spawn(fn -> send(me, start) end)
+    spawn(fn -> send(me, SpawnReg.start) end)
     send(:name, :stop)
 
     # The race condition here happens because

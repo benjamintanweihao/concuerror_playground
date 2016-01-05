@@ -1,0 +1,43 @@
+digraph {
+  graph [ranksep=0.3]
+  node [shape=box,width=7,fontname=Monospace]
+  init [label="Initial"];
+  subgraph {
+    "#Ref<0.0.1.90>" [label="        1: P: undefined = erlang:whereis('Elixir.Stacky')\l"];
+    "init" -> "#Ref<0.0.1.90>"[weight=1000];
+    "#Ref<0.0.1.128>" [label="        2: P: [] = erlang:process_info(P, registered_name)\l"];
+    "#Ref<0.0.1.90>" -> "#Ref<0.0.1.128>"[weight=1000];
+    "#Ref<0.0.1.140>" [label="        3: P: P.1 = erlang:spawn_opt({...})\l"];
+    "#Ref<0.0.1.128>" -> "#Ref<0.0.1.140>"[weight=1000];
+    "#Ref<0.0.1.151>" [label="        4: P.1: undefined = erlang:put('$ancestors', [...])\l"];
+    "#Ref<0.0.1.140>" -> "#Ref<0.0.1.151>"[weight=1000];
+    "#Ref<0.0.1.154>" [label="        5: P.1: undefined = erlang:put('$initial_call', {...})\l"];
+    "#Ref<0.0.1.151>" -> "#Ref<0.0.1.154>"[weight=1000];
+    "#Ref<0.0.1.157>" [label="        6: P.1: true = erlang:register('Elixir.Stacky', P.1)\l"];
+    "#Ref<0.0.1.154>" -> "#Ref<0.0.1.157>"[weight=1000];
+    "#Ref<0.0.1.160>" [label="        7: P.1: {...} = P ! {...}\l"];
+    "#Ref<0.0.1.157>" -> "#Ref<0.0.1.160>"[weight=1000];
+    "#Ref<0.0.1.173>" [label="        8: Message ({...}) from P.1 reaches P\l"];
+    "#Ref<0.0.1.160>" -> "#Ref<0.0.1.173>"[weight=1000];
+    "#Ref<0.0.1.177>" [label="        9: P: receives message ({...})\l"];
+    "#Ref<0.0.1.173>" -> "#Ref<0.0.1.177>"[weight=1000];
+    "#Ref<0.0.1.180>" [label="       10: P: P.1 = erlang:whereis('Elixir.Stacky')\l"];
+    "#Ref<0.0.1.177>" -> "#Ref<0.0.1.180>"[weight=1000];
+    "#Ref<0.0.1.182>" [label="       11: P: #Ref<0.0.1.185> = erlang:monitor(process, P.1)\l"];
+    "#Ref<0.0.1.180>" -> "#Ref<0.0.1.182>"[weight=1000];
+    "#Ref<0.0.1.186>" [label="       12: P: {...} = erlang:send(P.1, {...}, [...])\l"];
+    "#Ref<0.0.1.182>" -> "#Ref<0.0.1.186>"[weight=1000];
+    "#Ref<0.0.1.190>" [label="       13: Message ({...}) from P reaches P.1\l"];
+    "#Ref<0.0.1.186>" -> "#Ref<0.0.1.190>"[weight=1000];
+    "#Ref<0.0.1.194>" [label="       14: P.1: receives message ({...})\l"];
+    "#Ref<0.0.1.190>" -> "#Ref<0.0.1.194>"[weight=1000];
+    "#Ref<0.0.1.197>" [label="       15: P.1: P.1 = erlang:whereis('Elixir.Stacky')\l"];
+    "#Ref<0.0.1.194>" -> "#Ref<0.0.1.197>"[weight=1000];
+    "#Ref<0.0.1.200>" [label="       16: P.1: #Ref<0.0.1.203> = erlang:monitor(process, P.1)\l"];
+    "#Ref<0.0.1.197>" -> "#Ref<0.0.1.200>"[weight=1000];
+    "#Ref<0.0.1.204>" [label="       17: P.1: {...} = erlang:send(P.1, {...}, [...])\l"];
+    "#Ref<0.0.1.200>" -> "#Ref<0.0.1.204>"[weight=1000];
+    "#Ref<0.0.1.243>" [label="1: Error ([P,P.1] blocked)",style=filled,fillcolor=red];
+    "#Ref<0.0.1.204>" -> "#Ref<0.0.1.243>"[weight=1000];
+  }
+}

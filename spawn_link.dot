@@ -26,16 +26,16 @@ digraph {
     "#Ref<0.0.1.129>" -> "#Ref<0.0.1.161>"[weight=1000];
   }
   subgraph{
-    "#Ref<0.0.1.140>" [label="        2: P.1: receive timeout expired after 5000 ms\l"];
-    "#Ref<0.0.1.90>" -> "#Ref<0.0.1.140>"[style=invis,weight=1];
-    "#Ref<0.0.1.111>" -> "#Ref<0.0.1.140>"[constraint=false];
-    "#Ref<0.0.1.141>" [label="        3: P.1: exits normally\l",color=lime,penwidth=5];
-    "#Ref<0.0.1.140>" -> "#Ref<0.0.1.141>"[weight=1000];
-    "#Ref<0.0.1.143>" [label="        4: P: Exception noproc raised by: erlang:link(P.1)\l",color=orange,penwidth=5];
-    "#Ref<0.0.1.141>" -> "#Ref<0.0.1.143>"[weight=1000];
-    "#Ref<0.0.1.145>" [label="        5: P: exits abnormally ({...})\l",color=red,penwidth=5];
-    "#Ref<0.0.1.143>" -> "#Ref<0.0.1.145>"[weight=1000];
+    "#Ref<0.0.1.145>" [label="        2: P.1: receive timeout expired after 5000 ms\l"];
+    "#Ref<0.0.1.90>" -> "#Ref<0.0.1.145>"[style=invis,weight=1];
+    "#Ref<0.0.1.111>" -> "#Ref<0.0.1.145>"[constraint=false];
+    "#Ref<0.0.1.148>" [label="        3: P.1: exits normally\l",color=lime,penwidth=5];
+    "#Ref<0.0.1.145>" -> "#Ref<0.0.1.148>"[weight=1000];
+    "#Ref<0.0.1.150>" [label="        4: P: Exception noproc raised by: erlang:link(P.1)\l",color=orange,penwidth=5];
+    "#Ref<0.0.1.148>" -> "#Ref<0.0.1.150>"[weight=1000];
+    "#Ref<0.0.1.153>" [label="        5: P: exits abnormally ({...})\l",color=red,penwidth=5];
+    "#Ref<0.0.1.150>" -> "#Ref<0.0.1.153>"[weight=1000];
     "#Ref<0.0.1.181>" [label="2: Error",style=filled,fillcolor=red];
-    "#Ref<0.0.1.145>" -> "#Ref<0.0.1.181>"[weight=1000];
+    "#Ref<0.0.1.153>" -> "#Ref<0.0.1.181>"[weight=1000];
   }
 }
