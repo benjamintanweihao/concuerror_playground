@@ -1,10 +1,12 @@
 defmodule SpawnReg do
 
+  @name __MODULE__
+
   def start do
-    case Process.whereis(:name) do
+    case Process.whereis(@name) do
       nil ->
         pid = spawn(fn -> loop end)
-        Process.register(pid, :name)
+        Process.register(pid, @name)
         :ok
       _ ->
         :already_started
